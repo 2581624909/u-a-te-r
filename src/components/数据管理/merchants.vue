@@ -14,7 +14,7 @@
 						<h3 v-text="data.introd"></h3>
 						<h3>
 							<el-button size="mini" @click = 'sterk(data.name)'>编辑</el-button>
-							<el-button size="mini" @click = 'tianjia'>添加食品</el-button>
+							<el-button size="mini" @click = 'tianjia(data.name)'>添加食品</el-button>
 							<el-button size="mini" type="warning"  @click = "styo(data.name)">删除</el-button>
 						</h3>
 					</div>
@@ -51,6 +51,9 @@
 			}
 		},
 		methods:{
+			tianjia(id){
+				this.text.pushid = id
+			},
 			ques(){
 				for(let i = 0 ; i <this.userdata.length ; i++){
 					if(this.userdata[i].id == this.bian.id){

@@ -3,7 +3,7 @@
 		<div id="home">
 			<div v-for="data in hometext" class="box">
 				<div v-text="data.name"class="tou" @click="shows(data.name)"></div>
-				<div @click="showsa(datas)" v-if="data.falg" v-for="datas in data.datas" v-text="datas" class="main"></div>
+				<div @click="showsa(datas)" :name='datas' v-if="data.falg" v-for="datas in data.datas" v-text="datas" class="main"></div>
 			</div>
 			
 		</div>
@@ -81,6 +81,16 @@
 			this.name = this.$route.query.name
 			console.log(this.text.a)
 		},
+		watch:{
+			ids:function(){
+				alert(1)
+			}
+		},
+		computed:{
+			ids(){
+				return this.text.pushid
+			}
+		},
 		methods:{
 			showsa(data){
 				if(data == '首页'){
@@ -103,6 +113,15 @@
 					this.zujian = 'chart'
 				}else if(data == '说明'){
 					this.zujian = 'explain'
+				}
+				
+				var a = document.getElementsByClassName('main')
+				for(let i = 0 ; i<a.length ; i++){
+					if(a[i].innerHTML == data){
+						a[i].style.color = 'brown'
+					}else{
+						a[i].style.color = '#a09f9f'
+					}
 				}
 			},
 			shows(lest){
