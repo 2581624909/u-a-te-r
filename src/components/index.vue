@@ -9,7 +9,8 @@
 		</div>
 		<div class="right">
 				<tou></tou>
-				<component :is="zujian"></component>
+				<!-- <component :is="zujian"></component> -->
+				<router-view></router-view>
 		</div>
 	</div>
 </template>
@@ -80,6 +81,7 @@
 			this.text.a = this.$route.query.name
 			this.name = this.$route.query.name
 			console.log(this.text.a)
+			this.$router.push('indexs')
 		},
 		watch:{
 			ids:function(){
@@ -95,24 +97,34 @@
 			showsa(data){
 				if(data == '首页'){
 					this.zujian = 'index'
+					this.$router.push('indexs')
 				}else if(data == '用户列表'){
 					this.zujian = 'username'
+					this.$router.push('/username')
 				}else if(data == '商家列表'){
 					this.zujian = 'nerchants'
+					this.$router.push('/nerchants')
 				}else if(data == '食品列表'){
 					this.zujian = 'food'
+					this.$router.push('/food')
 				}else if(data == '订单列表'){
 					this.zujian = 'order'
+					this.$router.push('/order')
 				}else if(data == '管理员列表'){
 					this.zujian = 'admin'
+					this.$router.push('/admin')
 				}else if(data == '添加商铺'){
 					this.zujian = 'addShops'
+					this.$router.push('/addShops')
 				}else if(data == '添加商品'){
 					this.zujian = 'addGoods'
+					this.$router.push('/addGoods')
 				}else if(data == '用户分布'){
 					this.zujian = 'chart'
+					this.$router.push('/chart')
 				}else if(data == '说明'){
 					this.zujian = 'explain'
+					this.$router.push('/explain')
 				}
 				
 				var a = document.getElementsByClassName('main')
